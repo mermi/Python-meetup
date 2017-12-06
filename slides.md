@@ -3,6 +3,7 @@ class: center, middle
 # Data is the New Soil - Better Data Profiling with Python  
 # ☜(⌒▽⌒)☞
 
+
 ---
 
 # Who Am I ?
@@ -13,11 +14,6 @@ class: center, middle
 * ☕️ + ☕️ + 👩🏻‍💻 + 🛫  = ♥‿♥
 * ♥ DATA ♥
 * @manelbutterfly
----
-  ![quote affirmation <>](img/quoteaffirmation.jpg)
-  >> “The privilege of a lifetime is being who you are.”  
-
-
 ---
 
 # DATA ✌.ʕʘ‿ʘʔ.✌
@@ -41,46 +37,57 @@ class: center, middle
 
 ---
 
-## Data Quality & Data Profiling
-
----
-
 # How can we Define Data with good quality?
 
 ![data life cycle >](img/Data-Quality.png)
 
-* Accurate: good match with the data and the reality and able to draw correct conclusion from data
-* complete: Doesn't leave any open question, allows you to make a good decision based on available data, closeness between need to know and what data tells you
-* Consistency: Trust data regardless of source, identical information available to all processes
-* Timeliness: Data available without delay, able to know what do you need when you need, Smooth information flow: Data Delayed ==> Data Denied!
+* __Accurate__:
+  * Match data with reality
+  * Draw correct conclusion from data
+* __complete:__
+  * No open question left,
+  * Make a good decision based on available data
+  * Closeness between need to know and what data tells you
+* __Consistency:__
+  * Trust data regardless of source
+  * Identical information available to all processes
+* __Timeliness:__
+  * Availability without delay
+  * Know what do you need when you need,
+  * Smooth information flow: Data Delayed ==> Data Denied!
 
 ---
 
-# What about today?
+# What about today? ( ͡° ͜ʖ ͡°)
 
 * We live in the world of heterogeneity
 
-## ( ͡° ͜ʖ ͡°)
 * Different technologies / operate in different platforms
-* Big amount of Data being generated everyday in all sort of Organization and Enterprise
----
 
-## Need to collect the Data in one place and clean up the Data
+* Big amount of Data being generated everyday in all sort of Organization and Enterprise
+
+*  Need to collect the Data in one place and clean up the Data
+
 
 ---
 
 # A little context
 
 Usual problems we face:
+
  - inconsistencies sources, **NULL** values, missing records
+
  - schema design is not coherent
+
  - Any other concerns must have been fixed at the beginning,  before ETL
+
 
 __We need to catch it right at the start before it becomes a problem__
 
-> Prevention is better than Cure
+> "Prevention is better than Cure"
 
 ---
+
 # Data Profiling:
 
 ![data profiling >](img/Data-Management.png)
@@ -94,10 +101,15 @@ __We need to catch it right at the start before it becomes a problem__
 # When and How this happen:
 
 * __HOW?__
+
   * writing query or use Data Profiling tools
+
 * __WHY?__
+
   * At the discovery phase
+
   * Before modeling the process of your Data
+
   * During ETL design
 
 ---
@@ -115,20 +127,28 @@ __We need to catch it right at the start before it becomes a problem__
 ### Pandas + Jupyter Notebook ✈️
 
 * Why Pandas?
+
   * Designed to work with "labeled" and "relational" Data
+
   * Perfect Tool for Data Wrangling
+
   * Easy and quick data manipulation: aggregation, visualization
+
   * Two data structure: one dimensional and two dimensional
+
   * Easily delete and add column in a DF
+
   * Convert Data Structure to DataFrames objects
+
   * Represent Missing Data as NaNs {don't throw them away}
+
   * Powerful grouping by functionality
 
 ---
 
 # Better Data Profiling with Python
 
-###  🍺 + 🛢 = 👀
+###  🍺 + 🍻 = 👀
 
 ```Python
 import pandas as pd
@@ -147,27 +167,61 @@ breweries.head(5)
 beers.columns
 breweries.columns
 ```
+```Python
+Index(['abv', 'ibu', 'id', 'name', 'style', 'brewery_id', 'ounces'], dtype='object')
+```
+```Python
+Index(['name', 'city', 'state', 'id'], dtype='object')
+```
 ---
-![DataFrames columns >](img/DFcolumns.png)
+### Understand Data Columns:
 
 + Beers:
+
   + __ID:__ Unique identifier
+
   + __Name:__ Name of the beer
+
   + __ABV:__ Alcohol by volume of beer
+
   + __IBU:__ International Bittering Units of the beer.
+
   + __Style:__ Style of the beer
+
   + __Ounces:__ Ounces of the beer
+
 + Breweries:
+
   + __ID:__ Unique identifier of the brewery
+
   + __Name:__ Name of the brewery
+
   + __City:__ city where the brewery located
+
   + __State:__ State where brewery located
 ---
 ```Python
 beers.dtypes
+
 breweries.dtypes
 ```
-![DataFrames types <](img/dftypes.png)
+```Python
+abv           float64
+ibu           float64
+id              int64
+name           object
+style          object
+brewery_id      int64
+ounces        float64
+dtype: object
+```
+```Python
+name     object
+city     object
+state    object
+id        int64
+dtype: object
+```
 * ❗️ various numerical data cannot be grouped together into a single category
 * ❗️ object type is not very helpful
 ---
@@ -240,6 +294,7 @@ print(length)
 count = beers["ibu"].count()
 print(count)
 ```
+⬇️
 ```Python
 We have 1405 non-null observations
 ```
@@ -250,6 +305,7 @@ pct_of_missing_values = float(number_of_missing_values / length)
 pct_of_missing_values = "{0:.1f}%".format(pct_of_missing_values*100)
 print(pct_of_missing_values)
 ```
+⬇️
 ```Python
 41.7%
 ```
@@ -262,6 +318,8 @@ print(pct_of_missing_values)
 print("Minimum value: ", beers["ibu"].min())
 print("Maximum value: ", beers["ibu"].max())
 ```
+⬇️
+
 ```Python
 Minimum value:  4.0
 Maximum value:  138.0
@@ -271,10 +329,13 @@ Maximum value:  138.0
 ```Python
 print(beers["ibu"].mode())
 ```
+⬇️
+
 ```Python
 0    20.0
 dtype: float64
 ```
+---
 + __Mean__: sum of the values divided by the count of non-missing observations.
 
 ```Python
@@ -283,7 +344,6 @@ mean = beers["ibu"].mean()
 ```Python
 42.7131672598
 ```
----
 + __Median__: The exact number in the middle of an ordered list contains numerical Values
 
 ```Python
@@ -306,10 +366,17 @@ import matplotlib.pyplot as plt
 sns.distplot(beers["ibu"].dropna());
 ```
 ---
-![distribution <](img/distribution.png)
+#### Distribution Plot result:
+
 * The minimal value is close to 0 `IBU` and the maximum value is close to 140 `IBU`
+
 * most frequent value is close to 20 `IBU`
+
 * => We see we have two picks but we don't know why!
+
+
+
+![distribution <>](img/distribution.png)
 ---
 ### Summarize non numerical variables:
 
@@ -318,7 +385,7 @@ sns.distplot(beers["ibu"].dropna());
 ```Python
 beers[["name", "style"]].describe()
 ```
-![describe <](img/describe.png)
+![describe >](img/describe.png)
 ---
 ### Pandas profiling package
 
@@ -338,9 +405,11 @@ prf = pandas_profiling.ProfileReport(beers_and_breweries)
 pfr.to_file("profiling.html")
 ```
 
-[]:(Check me out)
+[Check me out 🤗](https://mermi.github.io/Python-meetup/profiling.html)
 ---
 
 # Thank you
+![Thankyou <>](img/happyfox.gif)
+
 
 ---
