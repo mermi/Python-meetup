@@ -60,15 +60,7 @@ class: center, middle
 
 # What about today? ( ͡° ͜ʖ ͡°)
 
-* We live in the world of heterogeneity
-
-* Different technologies / operate in different platforms
-
-* Big amount of Data being generated everyday in all sort of Organization and Enterprise
-
-*  Need to collect the Data in one place and clean up the Data
-
-
+![heterogeneity <>](img/heterogeneity.jpg)
 ---
 
 # A little context
@@ -410,6 +402,3 @@ pfr.to_file("profiling.html")
 
 # Thank you
 ![Thankyou <>](img/happyfox.gif)
-
-
----
