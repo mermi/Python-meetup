@@ -1,0 +1,32 @@
+img[alt$=">"] {
+  float:right;
+  width:60%;
+}
+
+img[alt$="<"] {
+  float:left;
+}
+
+img[alt$="<>"] {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: auto;
+    float: none!important;
+}
+img[alt$="lib"] {
+  display: block;
+  height: auto;
+  max-width: 50%;
+  float: none!important;
+}
+h2{
+  vertical-align: middle;
+  text-align: center;
+}
+.remark-inline-code{
+  /* background: #F5F5F5; /* lighter */
+  background: #e7e8e2; /* darker */
+  border-radius: 3px;
+  padding: 4px;
+}
