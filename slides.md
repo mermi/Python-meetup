@@ -67,7 +67,7 @@ class: center, middle
 
 Usual problems we face:
 
- - inconsistencies sources, **NULL** values, missing records
+ - inconsistence sources, **NULL** values, missing records
 
  - schema design is not coherent
 
@@ -96,7 +96,7 @@ __We need to catch it right at the start before it becomes a problem__
 
   * writing query or use Data Profiling tools
 
-* __WHY?__
+* __WHEN?__
 
   * At the discovery phase
 
