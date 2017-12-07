@@ -379,7 +379,7 @@ beers[["name", "style"]].describe()
 ```
 ![describe >](img/describe.png)
 ---
-### Pandas profiling package
+### What Could I know about `Nonstop Hef Hop` from my data?
 
 ```Python
 beers_and_breweries = pd.merge(beers,
@@ -390,6 +390,39 @@ beers_and_breweries = pd.merge(beers,
                                sort=True,
                                suffixes=('_beer', '_brewery'))
 ```
+#### What is the style of `Nonstop Hef Hop`?
+```Python
+beers_and_breweries[beers_and_breweries['name_beer'] == 'Nonstop Hef Hop']['style'].value_counts()
+```
+⬇️
+
+```python
+American Pale Wheat Ale    12
+Name: style, dtype: int64
+```
+
+#### From which State is `Nonstop Hef Hop`?
+```Python
+beers_and_breweries[beers_and_breweries['name_beer'] == 'Nonstop Hef Hop']['state'].value_counts()
+```
+⬇️
+
+```python
+OR    12
+Name: state, dtype: int64
+```
+---
+#### From which city is Nonstop Hef Hop?
+```python
+beers_and_breweries[beers_and_breweries['name_beer'] == 'Nonstop Hef Hop']['city'].value_counts()
+```
+⬇️
+
+```python
+Portland    12
+Name: city, dtype: int64
+```
+#### Pandas profiling package
 
 ```Python
 import pandas_profiling
